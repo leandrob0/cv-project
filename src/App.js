@@ -51,6 +51,9 @@ class App extends React.Component {
     this.practicalInfoChangeHandler = this.practicalInfoChangeHandler.bind(this);
     this.addEducationalInfo = this.addEducationalInfo.bind(this);
     this.addPracticalInfo = this.addPracticalInfo.bind(this);
+    this.deleteEducation = this.deleteEducation.bind(this);
+    this.deleteWork = this.deleteWork.bind(this);
+    this.validateInfo = this.validateInfo.bind(this);
   }
 
   generalInfoChangeHandler(e) {
@@ -88,14 +91,8 @@ class App extends React.Component {
 
   addEducationalInfo() {
 
-    let flag = 1;
-    let obj = this.state.educationalInfo;
-
-    for(const key in obj) {
-      if(obj[key] === '') {
-        flag = 0;
-      }
-    }
+    const obj = this.state.educationalInfo;
+    const flag = this.validateInfo(obj);
 
     if(flag === 1) {
       this.setState({
@@ -113,18 +110,12 @@ class App extends React.Component {
 
   addPracticalInfo() {
 
-    let flag = 1;
-    let obj = this.state.practicalInfo;
-
-    for(const key in obj) {
-      if(obj[key] === '') {
-        flag = 0;
-      }
-    }
+    const obj = this.state.practicalInfo;
+    const flag = this.validateInfo(obj);
 
     if(flag === 1) {
       this.setState({
-        allPractice: this.state.allPractice.concat(this.state.practicalInfo),
+        allPractice: this.state.allPractice.concat(obj),
         practicalInfo: {
           companyName: '',
           positionTitle: '',
@@ -136,6 +127,41 @@ class App extends React.Component {
     }
   }
 
+  deleteEducation() {
+
+    this.setState(prevState => {
+      let allEducation = [...prevState.allEducation];
+      allEducation.pop();
+      return { allEducation };
+    })
+  }
+
+  deleteWork() {
+    
+    this.setState(prevState => {
+      let allPractice = [...prevState.allPractice];
+      allPractice.pop();
+      return { allPractice };
+    })
+  }
+
+  validateInfo(obj) {
+
+    const today = new Date();
+    const date = `${today.getFullYear()}-${(today.getMonth()+1)}-${today.getDate()}`;
+
+    for(const key in obj) {
+      if(obj[key] === '') {
+        return 0;
+      }
+    }
+
+    if(obj.dateStarted > date) return 0;
+    if(obj.dateStarted >= obj.dateFinish) return 0;
+
+    return 1;
+  }
+
   render() {
     return (
       <div className='content'>
@@ -143,10 +169,10 @@ class App extends React.Component {
           <GeneralInfo generalInfoChangeHandler={this.generalInfoChangeHandler}/>
           <EducationalInfo educationalInfoChangeHandler={this.educationalInfoChangeHandler} 
           addEducationalInfo={this.addEducationalInfo} educations={this.state.allEducation} 
-          deleteEducation={this} value={this.state.educationalInfo}/>
+          deleteEducation={this.deleteEducation} value={this.state.educationalInfo}/>
           <PracticalInfo practicalInfoChangeHandler={this.practicalInfoChangeHandler} 
           addPracticalInfo={this.addPracticalInfo} works={this.state.allPractice} 
-          deleteWork={this} value={this.state.practicalInfo}/>
+          deleteWork={this.deleteWork} value={this.state.practicalInfo}/>
         </form>
       </div>
     )

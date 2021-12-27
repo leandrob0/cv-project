@@ -15,7 +15,7 @@ export default function EducationalInfo(props) {
             <h2>Educational information</h2>
             {
                 educations.map(val => {
-                  return <li key={val.id}>{val.title}</li>
+                  return <li key={val.id}>{val.title}<span onClick={deleteEducation}>X</span></li>
                 })
             }
             <Input id="schoolName" label="Institution name: " type="text" max="100" changeHandler={educationalInfoChangeHandler} value={value.schoolName}/>

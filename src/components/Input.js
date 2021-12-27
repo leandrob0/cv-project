@@ -16,7 +16,11 @@ class Input extends React.Component {
         return (
             <>
                 <label htmlFor={id}>{label}</label>
-                <input id={id} type={type} value={value} required maxLength={max} onChange={changeHandler}/>
+                {
+                    (type === 'date') ? 
+                    <input id={id} type={type} value={value} required min='2000-01-01' max='2040-01-01' onChange={changeHandler}/> :
+                    <input id={id} type={type} value={value} required maxLength={max} onChange={changeHandler}/>
+                }
             </>
         )
     }
