@@ -7,8 +7,6 @@ import uniqid from "uniqid";
 
 // TO DO: 
 /**
- * Make the visuals for work and education added.
- * Add a delete button to every work an education added.
  * Make the visuals for a submited cv.
  * Make a edit button to go back to the inputs with the values added previously.
  * Style.
