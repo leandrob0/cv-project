@@ -142,10 +142,8 @@ class App extends React.Component {
       <div className='content'>
         <form>
           <GeneralInfo generalInfoChangeHandler={this.generalInfoChangeHandler}/>
-          <EducationalInfo educationalInfoChangeHandler={this.educationalInfoChangeHandler}/>
-          <button type="button" onClick={this.addEducationalInfo}>Add education</button>
-          <PracticalInfo practicalInfoChangeHandler={this.practicalInfoChangeHandler}/>
-          <button type="button" onClick={this.addPracticalInfo}>Add work</button>
+          <EducationalInfo educationalInfoChangeHandler={this.educationalInfoChangeHandler} addEducationalInfo={this.addEducationalInfo}/>
+          <PracticalInfo practicalInfoChangeHandler={this.practicalInfoChangeHandler} addPracticalInfo={this.addPracticalInfo}/>
         </form>
       </div>
     )

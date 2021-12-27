@@ -2,7 +2,7 @@ import { Input } from "./Input";
 import '../styles/GeneralInfo.css';
 
 export default function EducationalInfo(props) {
-    const { educationalInfoChangeHandler } = props;
+    const { educationalInfoChangeHandler , addEducationalInfo } = props;
 
     return (
         <div className="educational-info">
@@ -11,6 +11,7 @@ export default function EducationalInfo(props) {
             <Input id="title" label="Title of study: " type="text" max="30" changeHandler={educationalInfoChangeHandler}/>
             <Input id="dateStarted" label="Date started: " type="date" max="30" changeHandler={educationalInfoChangeHandler}/>
             <Input id="dateFinish" label="Date finish: " type="date" max="30" changeHandler={educationalInfoChangeHandler}/>
+            <button type="button" onClick={addEducationalInfo}>Add education</button>
         </div>
     )
 }
