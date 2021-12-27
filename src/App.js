@@ -5,13 +5,20 @@ import PracticalInfo from './components/PracticalInfo';
 import './styles/App.css';
 import uniqid from "uniqid";
 
+// TO DO: 
+/**
+ * Make the visuals for work and education added.
+ * Add a delete button to every work an education added.
+ * Make the visuals for a submited cv.
+ * Make a edit button to go back to the inputs with the values added previously.
+ * Style.
+ */
+
 class App extends React.Component {
 
   constructor() {
     super();
 
-    // Basic object to know how the web will be structure in the state.
-    // When i have every field filled, this will be passed to another component that will show everything.
     this.state = {
       generalInfo: {
         firstName: '',
