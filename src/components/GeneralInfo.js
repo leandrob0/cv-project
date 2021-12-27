@@ -1,22 +1,18 @@
-import React from "react";
 import { Input } from "./Input";
-import '../styles/GeneralInfo.css'
+import '../styles/GeneralInfo.css';
 
-class GeneralInfo extends React.Component {
+export default function GeneralInfo(props){
+    const {generalInfoChangeHandler} = props;
 
-    render() {
-
-        return (
-            <div className="general-info">
-                <Input id="firstName" label="First name: " type="text" max="30" onChange={this.props.generalInfoChangeHandler}/>
-                <Input id="lastName" label="Last name: " type="text" max="30" onChange={this.props.generalInfoChangeHandler}/>
-                <Input id="address" label="Address: " type="text" max="30" onChange={this.props.generalInfoChangeHandler}/>
-                <Input id="phone" label="Phone number: " type="tel" max="20" onChange={this.props.generalInfoChangeHandler}/>
-                <Input id="email" label="Email: " type="email" max="50" onChange={this.props.generalInfoChangeHandler}/>
-                <Input id="social" label="Any social: " type="text" max="100" onChange={this.props.generalInfoChangeHandler}/>
-            </div>
-        )
-    }
+    return (
+        <div className="general-info">
+            <h2>General information</h2>
+            <Input id="firstName" label="First name: " type="text" max="30" changeHandler={generalInfoChangeHandler}/>
+            <Input id="lastName" label="Last name: " type="text" max="30" changeHandler={generalInfoChangeHandler}/>
+            <Input id="address" label="Address: " type="text" max="30" changeHandler={generalInfoChangeHandler}/>
+            <Input id="phone" label="Phone number: " type="tel" max="20" changeHandler={generalInfoChangeHandler}/>
+            <Input id="email" label="Email: " type="email" max="50" changeHandler={generalInfoChangeHandler}/>
+            <Input id="social" label="Any social: " type="text" max="100" changeHandler={generalInfoChangeHandler}/>
+        </div>
+    )
 }
-
-export {GeneralInfo};

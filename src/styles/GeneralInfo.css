@@ -1,4 +1,13 @@
 .general-info {
     display: flex;
     flex-direction: column;
+
+    width: 25rem;
+}
+
+.educational-info {
+    display: flex;
+    flex-direction: column;
+
+    width: 25rem;
 }
