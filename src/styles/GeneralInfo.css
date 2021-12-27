@@ -11,3 +11,10 @@
 
     width: 25rem;
 }
+
+.practical-info {
+    display: flex;
+    flex-direction: column;
+
+    width: 25rem;
+}

@@ -9,13 +9,14 @@ class Input extends React.Component {
             label,
             type,
             max,
-            changeHandler
+            changeHandler,
+            value
         } = this.props;
 
         return (
             <>
                 <label htmlFor={id}>{label}</label>
-                <input id={id} type={type} required maxLength={max} onChange={changeHandler}/>
+                <input id={id} type={type} value={value} required maxLength={max} onChange={changeHandler}/>
             </>
         )
     }

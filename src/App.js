@@ -98,7 +98,6 @@ class App extends React.Component {
     }
 
     if(flag === 1) {
-      console.log(this.state.allEducation);
       this.setState({
         allEducation: this.state.allEducation.concat(obj),
         educationalInfo: {
@@ -142,8 +141,12 @@ class App extends React.Component {
       <div className='content'>
         <form>
           <GeneralInfo generalInfoChangeHandler={this.generalInfoChangeHandler}/>
-          <EducationalInfo educationalInfoChangeHandler={this.educationalInfoChangeHandler} addEducationalInfo={this.addEducationalInfo}/>
-          <PracticalInfo practicalInfoChangeHandler={this.practicalInfoChangeHandler} addPracticalInfo={this.addPracticalInfo}/>
+          <EducationalInfo educationalInfoChangeHandler={this.educationalInfoChangeHandler} 
+          addEducationalInfo={this.addEducationalInfo} educations={this.state.allEducation} 
+          deleteEducation={this} value={this.state.educationalInfo}/>
+          <PracticalInfo practicalInfoChangeHandler={this.practicalInfoChangeHandler} 
+          addPracticalInfo={this.addPracticalInfo} works={this.state.allPractice} 
+          deleteWork={this} value={this.state.practicalInfo}/>
         </form>
       </div>
     )
