@@ -9,8 +9,8 @@ This is a small project to practice React, applying knowledge in components, pro
 ## Getting started
 
 ```
-git clone https://github.com/michalosman/cv-application.git
-cd cv-application
+git clone https://github.com/leandrob0/cv-project
+cd cv-project
 npm install
 npm start
 ```
