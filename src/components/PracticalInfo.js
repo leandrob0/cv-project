@@ -1,5 +1,5 @@
 import { Input } from "./Input";
-import '../styles/GeneralInfo.css';
+import '../styles/General.css';
 
 export default function PracticalInfo(props) {
     const { 
@@ -15,7 +15,7 @@ export default function PracticalInfo(props) {
             <h2>Practical information</h2>
             {
                 works.map(val => {
-                  return <li key={val.id}>{val.positionTitle}<span onClick={deleteWork}>X</span></li>
+                  return <li key={val.id}>{val.positionTitle}<span className="delete" onClick={deleteWork}>X</span></li>
                 })
             }
             <Input id="companyName" label="Company name: " type="text" max="40" changeHandler={practicalInfoChangeHandler} value={value.companyName}/>

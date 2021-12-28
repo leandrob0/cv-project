@@ -2,6 +2,7 @@ import React from 'react';
 import GeneralInfo from './components/GeneralInfo';
 import EducationalInfo from './components/EducationalInfo';
 import PracticalInfo from './components/PracticalInfo';
+import Cv from './components/Cv';
 import './styles/App.css';
 import uniqid from "uniqid";
 
@@ -21,7 +22,7 @@ class App extends React.Component {
       generalInfo: {
         firstName: '',
         lastName: '',
-        address: '',
+        location: '',
         phone: '',
         email: '',
         social: ''
@@ -162,16 +163,20 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className='content'>
-        <form>
-          <GeneralInfo generalInfoChangeHandler={this.generalInfoChangeHandler}/>
-          <EducationalInfo educationalInfoChangeHandler={this.educationalInfoChangeHandler} 
-          addEducationalInfo={this.addEducationalInfo} educations={this.state.allEducation} 
-          deleteEducation={this.deleteEducation} value={this.state.educationalInfo}/>
-          <PracticalInfo practicalInfoChangeHandler={this.practicalInfoChangeHandler} 
-          addPracticalInfo={this.addPracticalInfo} works={this.state.allPractice} 
-          deleteWork={this.deleteWork} value={this.state.practicalInfo}/>
-        </form>
+      <div className='container-total'>
+        <div className='content-form'>
+          <form>
+            <GeneralInfo generalInfoChangeHandler={this.generalInfoChangeHandler}/>
+            <EducationalInfo educationalInfoChangeHandler={this.educationalInfoChangeHandler} 
+            addEducationalInfo={this.addEducationalInfo} educations={this.state.allEducation} 
+            deleteEducation={this.deleteEducation} value={this.state.educationalInfo}/>
+            <PracticalInfo practicalInfoChangeHandler={this.practicalInfoChangeHandler} 
+            addPracticalInfo={this.addPracticalInfo} works={this.state.allPractice} 
+            deleteWork={this.deleteWork} value={this.state.practicalInfo}/>
+          </form>
+        </div>
+        <Cv generalInfo={this.state.generalInfo} allEducation={this.state.allEducation} 
+        allPractice={this.state.allPractice}/>
       </div>
     )
   }

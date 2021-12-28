@@ -19,13 +19,13 @@
     width: 25rem;
 }
 
-span {
+.delete {
     margin-left: 10px;
 
     transition: 0.3s;
 }
 
-span:hover {
+.delete:hover {
     cursor: pointer;
     color: red;
 }

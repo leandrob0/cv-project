@@ -1,4 +1,9 @@
-.content {
+.root {
+    width: 100%;
+    height: 100%;
+}
+
+.content-form {
     margin: 50px;
 
     display:flex;
@@ -37,4 +42,60 @@ button {
 
 button:hover {
     border: 1px solid black;
+}
+
+/*
+
+    #######################################################
+
+    STYLING OF THE COMPLETED CV VISUALS.
+
+    #######################################################
+
+*/
+
+.cv-container {
+    margin: 50px;
+
+    background-color: gray;
+
+    display: flex;
+}
+
+.left-side {
+    background-color: lightblue;
+    height: 500px;
+
+    order: 0;
+    flex-shrink: 2;
+
+    word-wrap: break-word;
+}
+
+.right-side {
+    background-color: lightpink;
+    height: 500px;
+
+    order: 1;
+    flex-grow: 2;
+}
+
+.personal-info {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+h3{
+    padding-left: 10px;
+    padding-right: 10px;
+
+    font-size: 1.8rem;
+}
+
+.icon {
+    margin-top: 2rem;
+    padding-right: 10px;
 }

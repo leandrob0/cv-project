@@ -1,5 +1,5 @@
 import { Input } from "./Input";
-import '../styles/GeneralInfo.css';
+import '../styles/General.css';
 
 export default function EducationalInfo(props) {
     const { 
@@ -15,7 +15,7 @@ export default function EducationalInfo(props) {
             <h2>Educational information</h2>
             {
                 educations.map(val => {
-                  return <li key={val.id}>{val.title}<span onClick={deleteEducation}>X</span></li>
+                  return <li key={val.id}>{val.title}<span className="delete" onClick={deleteEducation}>X</span></li>
                 })
             }
             <Input id="schoolName" label="Institution name: " type="text" max="100" changeHandler={educationalInfoChangeHandler} value={value.schoolName}/>
