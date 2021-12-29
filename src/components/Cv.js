@@ -7,13 +7,14 @@ import {
     faInbox,
     faGlobe
 } from '@fortawesome/free-solid-svg-icons';
+import Works from './Education&Practice';
 
 export default function Cv(props) {
 
     const {
         generalInfo,
-    //  allEducation,
-    //  allPractice
+        allEducation,
+        allPractice
     } = props;
 
     return (
@@ -22,28 +23,26 @@ export default function Cv(props) {
                 <h3>Personal information: </h3>
                 <div className='personal-info'>
                     <FontAwesomeIcon className='icon' icon={faUserCircle}/> 
-                    <span className='text'>{generalInfo.firstName} {generalInfo.lastName}</span>
+                    <span key='firstName' className='text'>{generalInfo.firstName} {generalInfo.lastName}</span>
                     <br/>
                     <FontAwesomeIcon className='icon' icon={faMapMarkedAlt}/>
-                    <span className='text'>{generalInfo.location}</span>
+                    <span key='location' className='text'>{generalInfo.location}</span>
                     <br/>
                     <FontAwesomeIcon className='icon' icon={faPhone}/>
-                    <span className='text'>{generalInfo.phone}</span>
+                    <span key='phone' className='text'>{generalInfo.phone}</span>
                     <br/>
                     <FontAwesomeIcon className='icon' icon={faInbox}/>
-                    <span className='text'>{generalInfo.email}</span>
+                    <span key='email' className='text'>{generalInfo.email}</span>
                     <br/>
                     <FontAwesomeIcon className='icon' icon={faGlobe}/>
-                    <span className='text'>{generalInfo.social}</span>
+                    <span key='social' className='text'>{generalInfo.social}</span>
                 </div>
             </div>
             <div className='right-side'>
-                <div className='educational-info'>
-                    
-                </div>
-                <div className='practical-info'>
-
-                </div>
+                <h3>Educational information: </h3>
+                <Works allWork={allEducation} classWork='educational-info'/>
+                <h3>Practical information: </h3>
+                <Works allWork={allPractice} classWork='practical-info'/>
             </div>
         </div>
     )

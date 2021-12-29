@@ -6,13 +6,6 @@ import Cv from './components/Cv';
 import './styles/App.css';
 import uniqid from "uniqid";
 
-// TO DO: 
-/**
- * Make the visuals for a submited cv.
- * Make a edit button to go back to the inputs with the values added previously.
- * Style.
- */
-
 class App extends React.Component {
 
   constructor() {
@@ -28,15 +21,15 @@ class App extends React.Component {
         social: ''
       },
       educationalInfo: {
-        schoolName: '',
+        placeName: '',
         title: '',
         dateStarted: '',
         dateFinish: '',
         id: uniqid()
       },
       practicalInfo: {
-        companyName: '',
-        positionTitle: '',
+        placeName: '',
+        title: '',
         dateStarted: '',
         dateFinish: '',
         id: uniqid()
@@ -60,7 +53,7 @@ class App extends React.Component {
     this.setState(prevState => {
 
       let generalInfo = {...prevState.generalInfo};
-      generalInfo[e.target.id] = e.target.value;
+      generalInfo[e.target.className] = e.target.value;
       return { generalInfo };
 
     });
@@ -71,7 +64,7 @@ class App extends React.Component {
     this.setState(prevState => {
 
       let educationalInfo = {...prevState.educationalInfo};
-      educationalInfo[e.target.id] = e.target.value;
+      educationalInfo[e.target.className] = e.target.value;
       return { educationalInfo };
 
     })
@@ -82,7 +75,7 @@ class App extends React.Component {
     this.setState(prevState => {
 
       let practicalInfo = {...prevState.practicalInfo};
-      practicalInfo[e.target.id] = e.target.value;
+      practicalInfo[e.target.className] = e.target.value;
       return { practicalInfo };
 
     })
@@ -97,7 +90,7 @@ class App extends React.Component {
       this.setState({
         allEducation: this.state.allEducation.concat(obj),
         educationalInfo: {
-          schoolName: '',
+          placeName: '',
           title: '',
           dateStarted: '',
           dateFinish: '',
@@ -116,10 +109,10 @@ class App extends React.Component {
       this.setState({
         allPractice: this.state.allPractice.concat(obj),
         practicalInfo: {
-          companyName: '',
-          positionTitle: '',
-          dateStartedWork: '',
-          dateFinishWork: '',
+          placeName: '',
+          title: '',
+          dateStarted: '',
+          dateFinish: '',
           id: uniqid()
         }
       })
@@ -165,6 +158,7 @@ class App extends React.Component {
     return (
       <div className='container-total'>
         <div className='content-form'>
+          <h2>Enter your information!: </h2>
           <form>
             <GeneralInfo generalInfoChangeHandler={this.generalInfoChangeHandler}/>
             <EducationalInfo educationalInfoChangeHandler={this.educationalInfoChangeHandler} 

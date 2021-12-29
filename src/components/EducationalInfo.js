@@ -1,5 +1,9 @@
 import { Input } from "./Input";
 import '../styles/General.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+    faTrash
+} from '@fortawesome/free-solid-svg-icons';
 
 export default function EducationalInfo(props) {
     const { 
@@ -15,13 +19,13 @@ export default function EducationalInfo(props) {
             <h2>Educational information</h2>
             {
                 educations.map(val => {
-                  return <li key={val.id}>{val.title}<span className="delete" onClick={deleteEducation}>X</span></li>
+                  return <li className='list-delete' key={val.id + 'delete'}>{val.title}<FontAwesomeIcon icon={faTrash} className="delete" onClick={deleteEducation}/></li>
                 })
             }
-            <Input id="schoolName" label="Institution name: " type="text" max="100" changeHandler={educationalInfoChangeHandler} value={value.schoolName}/>
-            <Input id="title" label="Title of study: " type="text" max="60" changeHandler={educationalInfoChangeHandler} value={value.title}/>
-            <Input id="dateStarted" label="Date started: " type="date" max="30" changeHandler={educationalInfoChangeHandler} value={value.dateStarted}/>
-            <Input id="dateFinish" label="Date finish: " type="date" max="30" changeHandler={educationalInfoChangeHandler} value={value.dateFinish}/>
+            <Input classId="placeName" label="Institution name: " type="text" max="100" changeHandler={educationalInfoChangeHandler} value={value.placeName}/>
+            <Input classId="title" label="Title of study: " type="text" max="60" changeHandler={educationalInfoChangeHandler} value={value.title}/>
+            <Input classId="dateStarted" label="Date started: " type="date" max="30" changeHandler={educationalInfoChangeHandler} value={value.dateStarted}/>
+            <Input classId="dateFinish" label="Date finish: " type="date" max="30" changeHandler={educationalInfoChangeHandler} value={value.dateFinish}/>
             <button type="button" onClick={addEducationalInfo}>Add education</button>
         </div>
     )

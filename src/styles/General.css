@@ -9,20 +9,31 @@
     display: flex;
     flex-direction: column;
 
-    width: 25rem;
+    position: relative;
 }
 
 .practical-info {
     display: flex;
     flex-direction: column;
 
-    width: 25rem;
+    position: relative;
+}
+
+.list-delete {
+    padding: 10px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+
+    margin: 5px;
 }
 
 .delete {
-    margin-left: 10px;
+    position: absolute;
+    right: 20px;
 
     transition: 0.3s;
+
+    box-shadow: 1px black;
 }
 
 .delete:hover {
